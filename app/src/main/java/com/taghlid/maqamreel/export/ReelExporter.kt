@@ -8,7 +8,6 @@ import android.net.Uri
 import android.provider.MediaStore
 import androidx.compose.ui.graphics.asAndroidBitmap
 import androidx.compose.ui.graphics.layer.GraphicsLayer
-import androidx.compose.ui.graphics.toComposeImageBitmap
 import androidx.core.content.FileProvider
 import java.io.File
 import java.io.FileOutputStream
@@ -23,7 +22,7 @@ class ReelExporter(private val context: Context) {
 
     /** خروجی از لایهٔ ضبط‌شده، مقیاس‌خورده به ابعاد ریل. */
     fun export(layer: GraphicsLayer): Bitmap {
-        val raw = layer.toImageBitmap().toComposeImageBitmap().asAndroidBitmap()
+        val raw = layer.toImageBitmap().asAndroidBitmap()
         if (raw.width == REEL_WIDTH_PX && raw.height == REEL_HEIGHT_PX) return raw
         val scaled = Bitmap.createScaledBitmap(raw, REEL_WIDTH_PX, REEL_HEIGHT_PX, true)
         if (scaled != raw) raw.recycle()
