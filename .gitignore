@@ -1,0 +1,8 @@
+# skills CLI installs are tracked via skills-lock.json + .agents/ + agent/
+node_modules/
+.gradle/
+build/
+*.apk
+*.aab
+.idea/
+local.properties
